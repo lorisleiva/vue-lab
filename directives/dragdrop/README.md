@@ -45,6 +45,6 @@ export default {
 
 | Attribute | Default | Description |
 | - | - | - |
-| `v-dragdrop="array"` | |  Tells the directive to initialize Dragula on this  container and to update our `array` accordingly. |
-| `order` *(optional)* | *No order update* | Tells the directive which property of our items keeps track of its order. You can use dot notation to provide a nested property. E.g. `order="order"` will update `chapter.order` whilst `order="meta.order"` will update `chapter.meta.order`. |
-| `options` *(optional)* | `{}` | Provides Dragula options. |
+| `v-dragdrop="array"` | **required** |  Tells the directive to initialize Dragula on this  container and to update our `array` accordingly. |
+| `order` | *No order update* | Tells the directive which property of our items keeps track of its order. You can use dot notation to provide a nested property. E.g. `order="order"` will update `chapter.order` whilst `order="meta.order"` will update `chapter.meta.order`. |
+| `options` | `{}` | Provides Dragula options. |
