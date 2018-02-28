@@ -56,7 +56,7 @@ export default {
 }
 
 /**
- * Find the index of an DOM element within a given container.
+ * Find the index of a DOM element within a given container.
  */
 function findDomIndex(container, el) {
     return Array.prototype.indexOf.call(container.children, el);
