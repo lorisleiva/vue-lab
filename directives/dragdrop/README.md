@@ -1,4 +1,4 @@
-# ↕️ Dragdrop directive
+# :arrow_up_down: Dragdrop directive
 
 Directive that uses [Dragula](https://github.com/bevacqua/dragula) to reorder your lists using drag&drop. A drag&drop will:
 * Reorders the DOM elements (by Dragula)
@@ -26,7 +26,7 @@ Add it to any component that needs it.
 import Dragdrop from './path/to/Dragdrop.js'
 
 export default {
-  directives: { Dragdrop },
+    directives: { Dragdrop },
 }
 ```
 
