@@ -6,7 +6,7 @@ Provides a convenient way for the user to confirm something that needs to be del
 
 ## Demo
 
-* [CodePen](codepen_url) TODO
+* [CodePen](https://codepen.io/lorisleiva/pen/LQMaNj)
 * [Blog article](http://lorisleiva.com/are-you-sure)
 
 ## Installation
