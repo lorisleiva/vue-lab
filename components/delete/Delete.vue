@@ -28,7 +28,7 @@
 export default {
     props: {
         url: String,
-        deleteTimeout: { type: Number, default: 500 },
+        deleteDelay: { type: Number, default: 500 },
         confirmText: { type: String, default: "Are you sure?" },
         successText: { type: String, default: "Deleted" },
         errorText: { type: String, default: "Something went wrong!" },
@@ -72,7 +72,7 @@ export default {
             this.status = 'success';
             setTimeout(() => {
                 this.$emit('delete');
-            }, this.deleteTimeout);
+            }, this.deleteDelay);
         },
 
         onError() {
