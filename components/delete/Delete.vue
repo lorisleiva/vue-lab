@@ -1,10 +1,17 @@
 
 <template>
 
-    <!-- Positioning parent. -->
+    <!-- 
+        Flex container: 
+        Wrapper that contains and positions the message and the close icon. 
+    -->
     <div class="d-flex justify-content-end align-items-center">
 
-        <!-- Message. -->
+        <!-- 
+            Message: 
+            The text we show the user, its color and whether we show it or not depend on the status. 
+            These are calculated inside computed properties below.  
+        -->
         <transition name="fade">
             <span 
                 v-if="showMessage"
@@ -14,7 +21,12 @@
             ></span>
         </transition>
 
-        <!-- Close icon. -->
+        <!-- 
+            Close icon: 
+            We always show the icon unless the element has been successfully deleted.
+            We make it spin when loading.
+            We make it red when not idle.
+        -->
         <i 
             v-show="status !== 'success'"
             class="fa fa-close" 
@@ -25,10 +37,16 @@
 </template>
 
 <script>
+
+// If axios is not already used globally.
+import axios from 'axios';
+
 export default {
     props: {
         url: String,
         deleteDelay: { type: Number, default: 500 },
+
+        // Optional props to allow parent components to customize the texts.
         confirmText: { type: String, default: "Are you sure?" },
         successText: { type: String, default: "Deleted" },
         errorText: { type: String, default: "Something went wrong!" },
@@ -36,11 +54,13 @@ export default {
 
     data() {
         return {
+            // Keep track of the current status of the component.
             status: 'idle',
         }
     }, 
 
     methods: {
+        // State transition table.
         click() {
             switch (this.status) {
                 case 'idle':
@@ -55,6 +75,7 @@ export default {
             }
         },
 
+        // Send API call to delete the item if an url is provided.
         submit() {
             Promise.all([
                 // Real promise.
@@ -68,6 +89,7 @@ export default {
             .then(([value]) => value instanceof Error ? this.onError() : this.onSuccess());
         },
 
+        // API call went successfully, or no URL was provided.
         onSuccess() {
             this.status = 'success';
             setTimeout(() => {
@@ -75,11 +97,13 @@ export default {
             }, this.deleteDelay);
         },
 
+        // API call failed.
         onError() {
             this.status = 'error';
             this.timeout('error');
         },
 
+        // Ensure inactivity from the user leads back to an `idle` status.
         timeout(initialStatus) {
             setTimeout(() => {
                 if (this.status === initialStatus) {
@@ -90,14 +114,17 @@ export default {
     },
 
     computed: {
+        // We show a message on states: `confirm`, `success` or `error`.
         showMessage() {
             return ['confirm', 'success', 'error'].includes(this.status);
         },
 
+        // Dynamically retrieve the text from the props.
         message() {
             return this[this.status + 'Text'] || '';
         },
 
+        // The message text is gray on `confirm` state, red otherwise.
         messageClass() {
             return this.status === 'confirm' ? 'text-muted' : 'text-danger';
         }
@@ -105,8 +132,13 @@ export default {
 }
 </script>
 
-<style>
-    /* Fontawesome. */
+<style lang="scss">
+    
+    // If font-awesome has not been imported globally, e.g. in your `app.scss`.
+    $fa-font-path: "~font-awesome/fonts";
+    @import "~font-awesome/scss/font-awesome";
+
+    /* Fontawesome styling. */
     .fa { cursor: pointer; color: #aaa; }
     .fa:hover { color: #555; }
     .fa.red { color: #CC0044; }
