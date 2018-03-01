@@ -1,5 +1,5 @@
 <template>
-    <div class="input-group">
+    <div>
         <input 
             ref="hidden-input"
             class="d-none" 
@@ -9,24 +9,26 @@
             autocomplete="off" 
             @change="inputFileChanged" 
         >
-
-        <input 
-            class="form-control"
-            type="text" 
-            v-model="fileNames" 
-            readonly
-            @click="triggerInputClick" 
-        >
-
-        <span class="input-group-btn">
-            <button 
-                class="btn btn-outline-secondary" 
-                type="button" 
-                @click="triggerInputClick"
+            
+        <div class="input-group">
+            <input 
+                class="form-control"
+                type="text" 
+                v-model="fileNames" 
+                readonly
+                @click="triggerInputClick" 
             >
-                <slot>Select...</slot>
-            </button>
-        </span>
+
+            <span class="input-group-append">
+                <button 
+                    class="btn btn-outline-secondary" 
+                    type="button" 
+                    @click="triggerInputClick"
+                >
+                    <slot>Select...</slot>
+                </button>
+            </span>
+        </div>
     </div>
 </template>
 
