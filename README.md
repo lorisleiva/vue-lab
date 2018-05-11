@@ -1,4 +1,4 @@
-# :sparkles: Vue Lab
+# 👨‍🔬 Vue Lab
 
 Vue Lab is collection of detailed Vue.js **components** and **directives** that can easily be reused into your Vue.js projects. Such Vue.js goodies are useful when pulling an existing library seems like an overkill and you just need a place to start, something to **copy/paste/edit** into your projects.
 
@@ -6,6 +6,7 @@ Vue Lab is collection of detailed Vue.js **components** and **directives** that 
 
 * **[Delete](components/delete)**. Confirm deletion without openning a modal.
 * **[InputFile](components/input-file)**. Display a decent input file to your users.
+* **[ResizableTextarea](components/resizable-textarea)**. Resize a textarea based on its content. *(renderless)*
 
 ## Directives
 
