@@ -2,7 +2,7 @@
 
 Renderless component that wraps any textarea to resize it based on its content.
 
-![Demo screenshot](TODO)
+![Demo screenshot](https://user-images.githubusercontent.com/3642397/39928168-e55fc4fa-5534-11e8-8f13-a274910b7d6f.gif)
 
 ## Demo
 
