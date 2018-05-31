@@ -5,6 +5,7 @@ Vue Lab is collection of detailed Vue.js **components** and **directives** that 
 ## Components
 
 * **[Delete](components/delete)**. Confirm deletion without openning a modal.
+* **[EditableTextarea](components/editable-textarea)**. Edit the selected text of a textarea. *(renderless)*
 * **[InputFile](components/input-file)**. Display a decent input file to your users.
 * **[ResizableTextarea](components/resizable-textarea)**. Resize a textarea based on its content. *(renderless)*
 
